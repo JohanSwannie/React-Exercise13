@@ -18,3 +18,13 @@ h1 {
 .pass-copy {
   margin-bottom: 2rem;
 }
+
+label {
+  margin-left: 0.5rem;
+}
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 40vw;
+  margin: 0 auto;
+}
