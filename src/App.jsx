@@ -2,15 +2,41 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [passwordLength, setPasswordLength] = useState(8);
+  const [charactersAllowed, setCharactersAllowed] = useState(false);
+  const [numbersAllowed, setNumbersAllowed] = useState(false);
+  const [password, setPassword] = useState("");
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div>
+        <h1>Password Generator</h1>
+        <div className="pass-copy">
+          <input type="text" value={password} readOnly placeholder="Password" />
+          <button>Copy</button>
+        </div>
+        <div>
+          <div>
+            <input
+              type="range"
+              min={7}
+              max={18}
+              value={passwordLength}
+              onChange={(event) => setPasswordLength(event.target.value)}
+            />
+            <label htmlFor="passwordLength">Length: {passwordLength}</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              defaultChecked={numbersAllowed}
+              onChange={() => {
+                setNumbersAllowed((prevValue) => !prevValue);
+              }}
+            />
+            <label htmlFor="numbers">Numbers</label>
+          </div>
+        </div>
       </div>
     </>
   );
