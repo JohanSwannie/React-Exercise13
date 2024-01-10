@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="password-generator">
         <h1>Password Generator</h1>
         <div className="pass-copy">
           <input
