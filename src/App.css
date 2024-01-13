@@ -38,11 +38,16 @@ label {
   margin: 0 auto;
 }
 
+button,
+input[type="text"] {
+  border: 3px solid #fff;
+  padding: 0.6rem;
+}
+
 button {
   background-color: red;
-  padding: 0.7rem;
 }
 
 input[type="text"] {
-  padding: 0.7rem;
+  background-color: lightseagreen;
 }
