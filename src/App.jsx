@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [passwordLength, setPasswordLength] = useState(8);
+  const [newPassword, setNewPassword] = useState(false);
   const [numbersAllowed, setNumbersAllowed] = useState(false);
   const [charactersAllowed, setCharactersAllowed] = useState(false);
   const [password, setPassword] = useState("");
@@ -27,7 +28,7 @@ function App() {
 
   useEffect(() => {
     generatePassword();
-  }, [passwordLength, numbersAllowed, charactersAllowed]);
+  }, [newPassword, passwordLength, numbersAllowed, charactersAllowed]);
 
   return (
     <>
@@ -37,11 +38,14 @@ function App() {
           <input
             type="text"
             value={password}
-            // readOnly
+            readOnly
             placeholder="Password"
             ref={passwordRef}
           />
           <button onClick={copyPasswordToClipboard}>Copy</button>
+          <button onClick={() => setNewPassword((prevValue) => !prevValue)}>
+            Generate new password
+          </button>
         </div>
         <div>
           <div className="bottom-row">
