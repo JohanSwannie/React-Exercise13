@@ -19,6 +19,13 @@ function App() {
       const character = Math.floor(Math.random() * passwString.length + 1);
       passw += passwString.charAt(character);
     }
+    // OR
+    // let passwArray = passwString.split("");
+    // for (let j = 0; j < passwordLength; j++) {
+    //   const char =
+    //     passwArray[Math.floor(Math.random() * passwArray.length + 1)];
+    //   passw += char;
+    // }
     setPassword(passw);
   }, [passwordLength, numbersAllowed, specialCharactersAllowed]);
 
