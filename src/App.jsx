@@ -5,7 +5,8 @@ function App() {
   const [passwordLength, setPasswordLength] = useState(8);
   const [newPassword, setNewPassword] = useState(false);
   const [numbersAllowed, setNumbersAllowed] = useState(false);
-  const [charactersAllowed, setCharactersAllowed] = useState(false);
+  const [specialCharactersAllowed, setSpecialCharactersAllowed] =
+    useState(false);
   const [password, setPassword] = useState("");
   const passwordRef = useRef(null);
 
@@ -13,13 +14,13 @@ function App() {
     let passw = "";
     let passwString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numbersAllowed) passwString += "0123456789";
-    if (charactersAllowed) passwString += "!@#$%^&*()_";
+    if (specialCharactersAllowed) passwString += "!@#$%^&*()_";
     for (let i = 0; i < passwordLength; i++) {
       const character = Math.floor(Math.random() * passwString.length + 1);
       passw += passwString.charAt(character);
     }
     setPassword(passw);
-  }, [passwordLength, numbersAllowed, charactersAllowed]);
+  }, [passwordLength, numbersAllowed, specialCharactersAllowed]);
 
   const copyPasswordToClipboard = () => {
     window.navigator.clipboard.writeText(password);
@@ -28,7 +29,7 @@ function App() {
 
   useEffect(() => {
     generatePassword();
-  }, [newPassword, passwordLength, numbersAllowed, charactersAllowed]);
+  }, [newPassword, passwordLength, numbersAllowed, specialCharactersAllowed]);
 
   return (
     <>
@@ -72,9 +73,9 @@ function App() {
             <div>
               <input
                 type="checkbox"
-                defaultChecked={charactersAllowed}
+                defaultChecked={specialCharactersAllowed}
                 onChange={() => {
-                  setCharactersAllowed((prevValue) => !prevValue);
+                  setSpecialCharactersAllowed((prevValue) => !prevValue);
                 }}
               />
               <label htmlFor="characters">Special Characters</label>
