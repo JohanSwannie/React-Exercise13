@@ -53,7 +53,7 @@ function App() {
             <div>
               <input
                 type="range"
-                min={7}
+                min={8}
                 max={18}
                 value={passwordLength}
                 onChange={(event) => setPasswordLength(event.target.value)}
