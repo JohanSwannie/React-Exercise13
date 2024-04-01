@@ -77,7 +77,7 @@ function App() {
                   setCharactersAllowed((prevValue) => !prevValue);
                 }}
               />
-              <label htmlFor="characters">Characters</label>
+              <label htmlFor="characters">Special Characters</label>
             </div>
           </div>
         </div>
